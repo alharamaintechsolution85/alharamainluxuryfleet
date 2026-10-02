@@ -1,0 +1,10 @@
+{
+  "name": "Al Haramain Luxury Fleet",
+  "short_name": "Al Haramain",
+  "description": "Private chauffeur and luxury car hire across the UAE.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#191a18",
+  "theme_color": "#191a18",
+  "icons": []
+}
