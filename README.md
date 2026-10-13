@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Al Haramain Luxury Fleet
 
-## Getting Started
+Responsive Next.js App Router site for luxury chauffeur and vehicle enquiries across the UAE.
 
-First, run the development server:
+## Run locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Set server-only credentials in `.env.local`; `.env.example` lists the required names. Never use `NEXT_PUBLIC_` for private credentials.
 
-## Learn More
+- `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` enable quote and account storage and API rate limits.
+- `SESSION_SECRET` must be a private random value of at least 32 characters. It signs secure account sessions and protects account lookup keys.
+- `GROQ_API_KEY` enables the concierge assistant; `GEMINI_API_KEY` is the optional fallback provider.
+- `NEXT_PUBLIC_SITE_URL` should be set to the canonical production origin when one is selected.
 
-To learn more about Next.js, take a look at the following resources:
+Account creation, sign-in, private dashboards, and saved enquiry history require both Upstash Redis credentials and `SESSION_SECRET`. Passwords are hashed before storage and account sessions use HTTP-only cookies. Configure these server-only credentials before deploying; account storage will return an explicit setup error until then. Generate a session secret with `node -e "console.log(require('node:crypto').randomBytes(32).toString('hex'))"` and keep the value private.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The values previously pasted into chat should be revoked and replaced before configuring the app. No credential values are stored in this repository.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Pages
 
-## Deploy on Vercel
+- `/` — focused introduction and featured vehicles.
+- `/fleet` — the complete vehicle collection and enquiry links.
+- `/about` — service overview and UAE destinations.
+- `/enquire` — concierge enquiry form.
+- `/signup`, `/login`, and `/account` — account creation, sign-in, and the private journey dashboard.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The featured fleet imagery is cropped from the supplied Dubai vehicle photograph; vehicle-specific photography should be verified against the actual available fleet before expanding the catalog.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Production checks
+
+```bash
+npm run lint
+npm run build
+```
+
+Reservations currently create a concierge request; this site does not collect card details or charge accounts. Confirm vehicle availability, final rates, exchange rates, insurance terms, and legal copy with the business before launch. The catalog inventory, exchange rates, and availability indicators are presentation data and are not connected to a fleet-management system.
