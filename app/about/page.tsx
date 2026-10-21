@@ -37,8 +37,7 @@ export default function AboutPage() {
       <section className="leadership">
         <div className="leadership__heading"><span className="eyebrow eyebrow--dark">THE PEOPLE BEHIND THE JOURNEY</span><h2>Leadership with <em>purpose.</em></h2><p>Personal attention begins with the people who set our standards.</p></div>
         <div className="leadership__grid">
-          <article className="leader-card"><div className="leader-card__monogram" aria-hidden="true">AHB</div><span>CEO &amp; FOUNDER</span><h3>Ali Hassan Butt</h3><p>Leads the company’s direction and commitment to thoughtful luxury transport throughout the UAE.</p></article>
-          <article className="leader-card"><div className="leader-card__monogram" aria-hidden="true">HSB</div><span>CO-FOUNDER &amp; DIRECTOR</span><h3>Hunza Saleem Butt</h3><p>Helps shape the service experience and the care that goes into every client journey.</p></article>
+          <article className="leader-card"><div className="leader-card__monogram" aria-hidden="true">AH</div><span>FOUNDER &amp; CEO</span><h3>Ali Hassan</h3><p>As the sole founder and CEO, Ali leads the company’s direction and commitment to thoughtful luxury transport throughout the UAE.</p></article>
         </div>
       </section>
       <section className="about-destinations" id="destinations">
